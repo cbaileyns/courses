@@ -26,7 +26,6 @@ public class Percolation {
         }
         if (i == N) {
             this.grid.union(bottom, location);
-            this.gridB.union(top, location);
         }
         int[] row = new int[4];
         int[] column = new int[4];
@@ -70,10 +69,10 @@ public class Percolation {
 
     public boolean isFull(int i, int j) {
         int location = verifyLocation(i, j);
-        return this.grid.connected(location, top);
+        return this.gridB.connected(location, top);
     }
     
     public boolean percolates() {
-        return this.gridB.connected(top, bottom);
+        return this.grid.connected(top, bottom);
     }
 }
